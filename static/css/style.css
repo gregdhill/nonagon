@@ -31,7 +31,7 @@ html, body {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     color: #fff;
-    font : normal 300 64px/1 'Josefin Sans', sans-serif;
+    font : normal 300 60px/1 'Josefin Sans', sans-serif;
     text-align: center;
     white-space: nowrap;
 }
@@ -268,11 +268,11 @@ html, body {
 
 .main p {
     color: #333;
-    font : normal 400 20px/1 'Josefin Sans', sans-serif;
+    font : normal 400 20px/1.5 'Josefin Sans', sans-serif;
 }
 
 .main p:nth-child(2) {
-	line-height: 22px;
+	line-height: 1.5;
 }
 
 .main p a {
@@ -295,7 +295,7 @@ html, body {
     margin-bottom: 30px;
 }
 
-.pname {
+.topic {
     font-weight: bold !important;
 }
 
@@ -366,6 +366,11 @@ li {
 	margin: 25px 0px 25px 0px;
 }
 
+#post-body {
+	width: 90%;
+	margin: auto;
+}
+
 #post-body, p {
     line-height: 1.7;
 }
@@ -387,13 +392,13 @@ li {
 	}
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1200px) {
 	.tree {
-        width: 80%;
+        width: 90%;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
 	.main {
 		display: inline-block;
 	}
@@ -423,6 +428,7 @@ li {
 	.tree {
         width: 100%;
 		padding: 50px;
+		padding-top: 10px;
     }
     .tree .right {
         width: 100%;

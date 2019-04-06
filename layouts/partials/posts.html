@@ -5,7 +5,9 @@
             <li>
                 <div class='document'>
                     <a href='{{ .URL }}'>
-                        {{ .Date.Format "Jan 2 2006" }} - {{ .LinkTitle }}
+                        <p class="topic">
+                            {{ .Date.Format "Jan 2 2006" }} - {{ .LinkTitle }}
+                        </p>
                     </a>
                     <p>{{ .Summary | markdownify }}</p>
                 </div>
