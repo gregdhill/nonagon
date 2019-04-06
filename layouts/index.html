@@ -58,7 +58,7 @@ $(document).ready(function(){
 
     $('.content').each(function(i, obj) {
         var list = $(this).find(".datalist li");
-        if (list.length < jump) {
+        if (list.length <= jump) {
             $(this).parent().find(".viewMoreRight").hide();
         }
     });

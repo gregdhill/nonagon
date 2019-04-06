@@ -361,9 +361,15 @@ li {
 	margin-bottom: 20px;
 }
 
+.post img {
+	width: 100%;
+	margin: 25px 0px 25px 0px;
+}
+
 #post-body, p {
     line-height: 1.7;
 }
+
 #post-body p > a {
   word-break: break-word;
   white-space: pre-wrap;
