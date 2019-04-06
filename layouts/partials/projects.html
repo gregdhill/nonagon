@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="tree">
+        <ul class="datalist">
+            {{ range .Site.Data.projects }}
+            <li>
+                <div class='document'>
+                    <a href="{{ .link }}">
+                        <p class='pname'>{{ .title }}</p>
+                    </a>
+                    <p>{{ .description | markdownify }}</p>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+
+    <a class="viewMoreRight"><span></span></a>
+    <a class="viewMoreLeft" style="display: none;"><span></span></a>
+</div>

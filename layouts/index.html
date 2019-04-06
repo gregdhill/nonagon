@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html class="full" lang="en">
+
+{{ partial "head.html" . }}
+
+<body>
+
+    <section id="home" class="main">
+
+		<div id="links">
+            {{ if .Site.Params.github }}
+			<div class="link">
+				<a id="github" href="{{ .Site.Params.github }}">
+					<i class="grow fa fa-github fa-4x" aria-hidden="true"></i></a>
+            </div>
+            {{ end }}
+            {{ if .Site.Params.twitter }}
+			<div class="link">
+				<a id="twitter" href="{{ .Site.Params.twitter }}">
+					<i class="grow fa fa-twitter fa-4x" aria-hidden="true"></i></a>
+            </div>
+            {{ end }}
+            {{ if .Site.Params.scholar }}
+            <div class="link">
+				<a id="scholar" href="{{ .Site.Params.scholar }}">
+					<i class="grow fa fa-graduation-cap fa-4x" aria-hidden="true"></i></a>
+            </div>
+            {{ end }}
+		</div>
+		
+		<h1>{{ .Site.Params.firstname }}<br/>{{ .Site.Params.lastname }}</h1>
+		<div id="profile">
+			<span><img class="img-responsive" src="{{ .Site.Params.image }}"/></span>
+		</div>
+
+    <a href="#projects" class="scroll"><span></span>Scroll</a>
+
+    </section>
+
+    <section id="projects" class="main">
+    <div id="title"><h1>Projects</h1></div>
+    {{ partial "projects.html" . }}
+    <a href="#posts" class="scroll"><span></span>Scroll</a>
+    </section>
+
+    <section id="posts" class="main">
+    <div id="title"><h1>Posts</h1></div>
+    {{ partial "posts.html" . }}
+    </section>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
+
+</body>
+
+<script>
+var jump = 2;
+$(document).ready(function(){
+
+    $('.content').each(function(i, obj) {
+        var list = $(this).find(".datalist li");
+        if (list.length < jump) {
+            $(this).parent().find(".viewMoreRight").hide();
+        }
+    });
+
+    $(function() {
+      $('.scroll').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+      });
+    });
+
+    $(function () {
+        $('.viewMoreRight').click(function () {
+            var list = $(this).parent().find(".datalist li");
+            var index = $(this).parent().find('.datalist li:visible:first').index()
+
+            list.hide();
+            list.slice(index+jump, index+(jump*2)).show();
+
+            var index = $(this).parent().find('.datalist li:visible:first').index()
+            if (index >= list.length || index+jump >= list.length) {
+                $(this).hide();
+            } 
+
+            if (index > 0) {
+                $(this).parent().find(".viewMoreLeft").show();
+            }
+        });
+    });
+
+    $(function () {
+        $('.viewMoreLeft').click(function () {
+            var list = $(this).parent().find(".datalist li");
+            var index = $(this).parent().find('.datalist li:visible:first').index()
+            
+            list.hide();
+            list.slice(index-jump, index).show();
+
+            var index = $(this).parent().find('.datalist li:visible:first').index()
+            var viewRight = $(this).parent().find(".viewMoreRight")
+            if (index <= 0) {
+                viewRight.show();
+                $(this).hide();
+            } else if (index < list.length) {
+                viewRight.show();
+            }
+        });
+    });
+});
+
+</script>
+</html>

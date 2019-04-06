@@ -1,0 +1,19 @@
+<div class="content">
+    <div class="tree">
+        <ul class="datalist">
+            {{ range where .Paginator.Pages "Section" "ne" "" }}
+            <li>
+                <div class='document'>
+                    <a href='{{ .URL }}'>
+                        {{ .Date.Format "Jan 2 2006" }} - {{ .LinkTitle }}
+                    </a>
+                    <p>{{ .Summary | markdownify }}</p>
+                </div>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+
+    <a class="viewMoreRight"><span></span></a>
+    <a class="viewMoreLeft" style="display: none;"><span></span></a>
+</div>

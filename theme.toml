@@ -1,0 +1,12 @@
+name = "Nonagon"
+license = "MIT"
+licenselink = "https://github.com/gregdhill/nonagon/blob/master/LICENSE"
+description = "Simple portfolio Hugo theme"
+homepage = "https://greghill.io"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Gregory Hill"
+  homepage = "greghill.io"
