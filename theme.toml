@@ -5,7 +5,7 @@ description = "Simple portfolio Hugo theme"
 homepage = "https://greghill.io"
 tags = []
 features = []
-min_version = "0.41"
+min_version = ""
 
 [author]
   name = "Gregory Hill"
