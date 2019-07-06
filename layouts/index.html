@@ -5,7 +5,7 @@
 
 <body>
 
-    <section id="home" class="main">
+    <section id="home" class="main home">
 
 		<div id="links">
             {{ if .Site.Params.github }}
@@ -33,17 +33,15 @@
 			<span><img class="img-responsive" src="{{ .Site.Params.image }}"/></span>
 		</div>
 
-    <a href="#projects" class="scroll"><span></span>Scroll</a>
-    </section>
-
-    <section id="projects" class="main">
-    <div id="title"><h1>Projects</h1></div>
-    {{ partial "projects.html" . }}
+    <a href="#posts" class="scroll"><span></span>Scroll</a>
     </section>
 
     <section id="posts" class="main">
     <div id="title"><h1>Posts</h1></div>
     {{ partial "posts.html" . }}
+    {{ if .Site.Data.projects }}
+    <p id="continue"><a href="projects">Projects ></a></p>
+    {{ end }}
     </section>
 
     <script src="js/jquery.js"></script>
@@ -56,13 +54,6 @@
 var jump = 2;
 $(document).ready(function(){
 
-    $('.content').each(function(i, obj) {
-        var list = $(this).find(".datalist li");
-        if (list.length <= jump) {
-            $(this).parent().find(".viewMoreRight").hide();
-        }
-    });
-
     $(function() {
       $('.scroll').on('click', function(e) {
         e.preventDefault();
@@ -70,43 +61,6 @@ $(document).ready(function(){
       });
     });
 
-    $(function () {
-        $('.viewMoreRight').click(function () {
-            var list = $(this).parent().find(".datalist li");
-            var index = $(this).parent().find('.datalist li:visible:first').index()
-
-            list.hide();
-            list.slice(index+jump, index+(jump*2)).show();
-
-            var index = $(this).parent().find('.datalist li:visible:first').index()
-            if (index >= list.length || index+jump >= list.length) {
-                $(this).hide();
-            } 
-
-            if (index > 0) {
-                $(this).parent().find(".viewMoreLeft").show();
-            }
-        });
-    });
-
-    $(function () {
-        $('.viewMoreLeft').click(function () {
-            var list = $(this).parent().find(".datalist li");
-            var index = $(this).parent().find('.datalist li:visible:first').index()
-            
-            list.hide();
-            list.slice(index-jump, index).show();
-
-            var index = $(this).parent().find('.datalist li:visible:first').index()
-            var viewRight = $(this).parent().find(".viewMoreRight")
-            if (index <= 0) {
-                viewRight.show();
-                $(this).hide();
-            } else if (index < list.length) {
-                viewRight.show();
-            }
-        });
-    });
 });
 
 </script>
