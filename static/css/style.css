@@ -325,7 +325,7 @@ li {
 }
 
 #post-body {
-	width: 90%;
+	width: 70%;
 	margin: auto;
 }
 
@@ -340,7 +340,7 @@ li {
 
 #post-body ul, #misc-body ul {
 	padding-left: 20px;
-	list-style-type: circle;
+	/* list-style-type: circle; */
 }
 
 #post-body li, #misc-body li {
