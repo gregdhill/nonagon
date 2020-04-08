@@ -1,65 +1,22 @@
-<!DOCTYPE html>
-<html class="full" lang="en">
+{{- define "main" -}}
 
-{{ partial "head.html" . }}
+<div id="home">
 
-<body>
+  <div id="links">
+    {{ range .Site.Params.Links }}
+      <div class="link">
+        <a id="github" href="{{ .url }}">
+          <i class="grow fa {{ .icon }} fa-4x" aria-hidden="true"></i>
+        </a>
+      </div>
+    {{ end }}
+  </div>
+    
+  <h1>{{ .Site.Params.firstname }}<br/>{{ .Site.Params.lastname }}</h1>
+  <div id="profile">
+    <span><img class="img-responsive" src="{{ .Site.Params.image }}"/></span>
+  </div>
 
-    <section id="home" class="main home">
+</div>
 
-		<div id="links">
-            {{ if .Site.Params.github }}
-			<div class="link">
-				<a id="github" href="{{ .Site.Params.github }}">
-					<i class="grow fa fa-github fa-4x" aria-hidden="true"></i></a>
-            </div>
-            {{ end }}
-            {{ if .Site.Params.twitter }}
-			<div class="link">
-				<a id="twitter" href="{{ .Site.Params.twitter }}">
-					<i class="grow fa fa-twitter fa-4x" aria-hidden="true"></i></a>
-            </div>
-            {{ end }}
-            {{ if .Site.Params.scholar }}
-            <div class="link">
-				<a id="scholar" href="{{ .Site.Params.scholar }}">
-					<i class="grow fa fa-graduation-cap fa-4x" aria-hidden="true"></i></a>
-            </div>
-            {{ end }}
-		</div>
-		
-		<h1>{{ .Site.Params.firstname }}<br/>{{ .Site.Params.lastname }}</h1>
-		<div id="profile">
-			<span><img class="img-responsive" src="{{ .Site.Params.image }}"/></span>
-		</div>
-
-    <a href="#posts" class="scroll"><span></span>Scroll</a>
-    </section>
-
-    <section id="posts" class="main">
-    <div id="title"><h1>Posts</h1></div>
-    {{ partial "posts.html" . }}
-    <p id="continue"><a href="projects">Projects ></a></p>
-    </section>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
-
-</body>
-
-<script>
-var jump = 2;
-$(document).ready(function(){
-
-    $(function() {
-      $('.scroll').on('click', function(e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
-      });
-    });
-
-});
-
-</script>
-</html>
+{{- end -}}

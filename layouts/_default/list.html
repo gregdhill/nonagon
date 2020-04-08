@@ -1,0 +1,33 @@
+{{ define "main" }}
+
+{{- $title := T .Title -}}
+{{- if not $title -}}
+{{- $title = .Title -}}
+{{- end -}}
+
+<div class="catalogue">
+    <h1 class="catalogue-header">{{- $title -}}</h1>
+    {{ range (.Paginate .Pages).Pages }}
+    <a href="{{ .Permalink }}" class="catalogue-item">
+        <div>
+            <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+            <h1 class="catalogue-title">{{ .Title }}</h1>
+    
+            <p> {{ .Summary | markdownify }}</p>
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+<div class="pagination">
+    {{ if .Paginator.HasPrev }}
+        <a href="{{ .Paginator.Prev.URL }}" class="left arrow">&#8592;</a>
+    {{ end }}
+    {{ if .Paginator.HasNext }}
+        <a href="{{ .Paginator.Next.URL }}" class="right arrow">&#8594;</a>
+    {{ end }}
+
+    <span>{{ .Paginator.PageNumber }}</span>
+</div>
+
+{{ end }}

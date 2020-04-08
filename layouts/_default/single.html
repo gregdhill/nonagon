@@ -1,30 +1,25 @@
-<!DOCTYPE html>
-<html>
-{{ partial "head.html" . }}
-    <body>
-        <div class="post">
-            <article>
-                <header>
-                    <h1>
-                        {{ .Title }}
-                    </h1>
-                    <h2 class="headline">
-                    {{ .Date.Format "Jan 2, 2006" }}
-                    · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
-                    · {{ .ReadingTime }} minute read
-                    </h2>
-                </header>
-                {{ if .Site.Params.enableToc }}
-                  {{ if .TableOfContents }}
-                    <div id="toc">
-                      {{ .TableOfContents }}
-                    </div>
-                  {{ end }}
-                {{ end }}
-                <section id="post-body">
-                    {{ .Content }}
-                </section>
-            </article>
-        </section>
-    </body>
-</html>
+{{- define "main" -}}
+
+<div class="post">
+    <div class="post-info">
+        {{ if .Date }}
+            {{ .Date.Format "Jan 2, 2006" }}
+            · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+            · {{ .ReadingTime }} minute read
+        {{ end }}
+    </div>
+
+    <h1 class="post-title">
+        {{ .Title }}
+    </h1>
+
+    <div class="post-tags">
+        {{- range .Params.tags -}}
+        {{- $url := print "/tags/" (. | urlize) "/" -}}
+        <a class="tag" href={{- $url | relLangURL -}}>#{{- . -}}</a>
+        {{- end -}}
+    </div>
+
+    {{ .Content }}
+</div>
+{{- end -}}
