@@ -3,12 +3,10 @@
 <div id="home">
 
   <div id="links">
-    {{ range .Site.Params.Links }}
-      <div class="link">
-        <a id="github" href="{{ .url }}">
-          <i class="grow fa {{ .icon }} fa-4x" aria-hidden="true"></i>
-        </a>
-      </div>
+    {{ range .Site.Params.Home.Links }}
+      <a class="link" href="{{ .url }}">
+        <i class="grow fa {{ .icon }} fa-4x" aria-hidden="true"></i>
+      </a>
     {{ end }}
   </div>
     

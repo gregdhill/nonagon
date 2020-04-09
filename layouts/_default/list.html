@@ -25,10 +25,14 @@
 
 <div class="pagination">
     {{ if .Paginator.HasPrev }}
-        <a href="{{ .Paginator.Prev.URL }}" class="left arrow">&#8592;</a>
+        <a href="{{ .Paginator.Prev.URL }}" class="left arrow">
+            <i class="grow fa fa-long-arrow-left fa-1x" aria-hidden="true"></i>
+        </a>
     {{ end }}
     {{ if .Paginator.HasNext }}
-        <a href="{{ .Paginator.Next.URL }}" class="right arrow">&#8594;</a>
+        <a href="{{ .Paginator.Next.URL }}" class="right arrow">
+            <i class="grow fa fa-long-arrow-right fa-1x" aria-hidden="true"></i>
+        </a>
     {{ end }}
 
     <span>{{ .Paginator.PageNumber }}</span>
