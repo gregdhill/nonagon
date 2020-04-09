@@ -10,10 +10,14 @@
     {{ range (.Paginate .Pages).Pages }}
     <a href="{{ .Permalink }}" class="catalogue-item">
         <div>
-            <time datetime="{{ .PublishDate }}" class="catalogue-time">{{ i18n "publishdate" . }}</time>
+            {{ if eq .Type "posts" }}
+                <time class="catalogue-time">{{ .PublishDate.Format "January 2, 2006" }}</time>
+            {{ end }}
             <h1 class="catalogue-title">{{ .Title }}</h1>
     
-            <p> {{ .Summary | markdownify }}</p>
+            {{ if eq .Type "posts" }}
+                <p>{{ .Summary | markdownify }}</p>
+            {{ end }}
         </div>
     </a>
     {{ end }}
