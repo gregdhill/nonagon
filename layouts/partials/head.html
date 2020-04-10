@@ -4,7 +4,7 @@
 	<meta name="keywords" content="{{ .Site.Params.keywords }}">
 	<meta name="author" content="{{ .Site.Params.name }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ .Site.Params.name }} | {{ .Title }}</title>
+	<title>{{ .Site.Params.name }}{{- if ne .Title "" }} | {{ .Title }}{{- end -}}</title>
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
