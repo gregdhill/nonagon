@@ -1,7 +1,7 @@
 name = "Nonagon"
 license = "MIT"
 licenselink = "https://github.com/gregdhill/nonagon/blob/master/LICENSE"
-description = "Simple portfolio Hugo theme"
+description = "Homepage & Blog"
 homepage = "https://greghill.io"
 tags = []
 features = []
