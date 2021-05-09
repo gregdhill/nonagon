@@ -3,9 +3,9 @@
 <div class="post">
     <div class="post-info">
         {{ if .Date }}
-            {{ .Date.Format "Jan 2, 2006" }}
-            · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
-            · {{ .ReadingTime }} minute read
+        {{ .Date.Format "Jan 2, 2006" }}
+        · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+        · {{ .ReadingTime }} minute read
         {{ end }}
     </div>
 
